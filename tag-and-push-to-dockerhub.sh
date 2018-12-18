@@ -6,11 +6,11 @@ fi
 
 help () {
   cat <<- END
-	HELP: Create Generic VirtualBox VM Script:
-	------------------------------------------
-    ./build-docker-image.sh <version tag>
+	Create Generic VirtualBox VM Script:
+  ------------------------------------------
+    ./tag-and-push-to-dockerhub.sh <version tag>
 
-    Example: ./build-docker-image.sh v0.0.1
+    Example: ./tag-and-push-to-dockerhub.sh v0.0.1
 
 	END
 }
@@ -22,4 +22,7 @@ if (( parameterCount != 1 )); then
   help;
   exit 1;
 fi
-docker build -t cloud-init-creator:${1} .
+
+echo "Tagging and pushing Version $1 to Docker Hub"
+docker tag cloud-init-creator:$1 junkmail4mjd/cloud-init-creator:$1
+docker push junkmail4mjd/cloud-init-creator:$1
