@@ -5,7 +5,8 @@ rm -f fail-no-user-data/config-data.iso
 rm -f succeed-both-files/config-data.iso
 rm -f succeed-user-data/config-data.iso
 rm -Rf test-results
-mkdir test-results
+mkdir -p fail-no-files
+mkdir -p test-results
 
 printf "Starting Test Containers...\n\n"
 docker run -d --name cic-fail-no-files -v $(pwd)/fail-no-files/:/usr/src/files cloud-init-creator:v0.0.1
