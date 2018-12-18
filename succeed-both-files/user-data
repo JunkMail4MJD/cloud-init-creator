@@ -1,0 +1,19 @@
+#cloud-config
+users:
+  - name: ubuntu
+    plain_text_passwd: 'password'
+    lock_passwd: False
+    gecos: ubuntu
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys:
+      - <public-Key>
+
+system_info:
+  default_user:
+   name: ubuntu
+   groups: [sudo, adm ]
+runcmd:
+ - "ip addr"
+ - "df -h"
+ - [ update-grub ]
