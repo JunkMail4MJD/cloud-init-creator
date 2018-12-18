@@ -1,12 +1,7 @@
 #!/bin/bash
-if [ -z "$BASH_VERSION" ] ; then
-   echo 'Boot Info Script needs to be run with bash as shell interpreter.' >&2;
-   exit 1;
-fi
-
 help () {
   cat <<- END
-	HELP: Create Generic VirtualBox VM Script:
+	HELP: Script to build the cloud-init-creator docker image
 	------------------------------------------
     ./build-docker-image.sh <version tag>
 
@@ -22,4 +17,5 @@ if (( parameterCount != 1 )); then
   help;
   exit 1;
 fi
+echo "Build cloud-init-creator image..."
 docker build -t cloud-init-creator:${1} .

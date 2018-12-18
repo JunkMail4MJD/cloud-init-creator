@@ -1,23 +1,11 @@
 #!/usr/bin/env python3
-# Python program to find SHA256 hash string of a file
-import hashlib
+# Python program to check the results of the cloud-init-creator tests
 import sys
 import os.path
 
 RED = "\033[1;31m"
 GREEN = "\033[0;32m"
 RESET = "\033[0;0m"
-
-
-def calculate_sha256(filename):
-    sha256_hash = hashlib.sha256()
-    with open(filename, "rb") as f:
-        # Read and update hash string value in blocks of 4K
-        for byte_block in iter(lambda: f.read(4096), b""):
-            sha256_hash.update(byte_block)
-        # print("Calculated SHA256 Hash for: " + filename + "  " + sha256_hash.hexdigest())
-    return sha256_hash.hexdigest()
-
 
 containerLogTests = [
     {

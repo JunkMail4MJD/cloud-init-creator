@@ -1,12 +1,7 @@
 #!/bin/bash
-if [ -z "$BASH_VERSION" ] ; then
-   echo 'Boot Info Script needs to be run with bash as shell interpreter.' >&2;
-   exit 1;
-fi
-
 help () {
   cat <<- END
-	Create Generic VirtualBox VM Script:
+	HELP: Script To Tag and Push cloud-init-creator to Dockerhub:
   ------------------------------------------
     ./tag-and-push-to-dockerhub.sh <version tag>
 
